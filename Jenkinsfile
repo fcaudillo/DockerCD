@@ -6,9 +6,8 @@ pipeline {
                 echo 'Building...'
                 sh 'env'
                 dir ('android/'){
-                    sh 'echo sdk.dir=$ANDROID_HOME > local.properties'
-                    sh 'yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses'
-                    sh 'cp -R $ANDROID_HOME/licenses licenses/'
+                    sh 'echo $WORKSPACE'
+                    sh 'ls -larh '
                     sh './gradlew build clean'
                 }
             }
