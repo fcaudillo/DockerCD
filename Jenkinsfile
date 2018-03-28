@@ -15,7 +15,7 @@ pipeline {
         stage('Generate Apk') {
             steps {
                 dir ('android/'){
-                    sh 'docker run --volumes-from stacks_jenkins-data_1  stacks_androidsdk bash /exec_gradle.sh /var/jenkins_home/codigo/DockerCD/android/ assembleDebug'
+                    sh 'docker run --volumes-from stacks_jenkins-data_1  stacks_androidsdk bash /exec_gradle.sh $WORKSPACE/android/ assembleDebug'
                 }
             }
         }
