@@ -22,7 +22,7 @@ pipeline {
         stage('Unit test'){
             steps {
                 dir ('android/'){
-                    sh './gradlew test'
+                    sh 'docker run --volumes-from stacks_jenkins-data_1  stacks_androidsdk bash /exec_gradle.sh $WORKSPACE/android/ test'
                 }
             }
         }
