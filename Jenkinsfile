@@ -29,7 +29,7 @@ pipeline {
 		stage('Install/Test expreso in device') {
             steps {
                 dir ('android/'){
-                    sh 'docker run --volumes-from stacks_jenkins-data_1 --privileged -v /dev/bus/usb:/dev/bus/usb -it stacks_androidsdk bash InstallApp.bash $WORKSPACE/android/app/build/outputs/apk/debug/app-debug.apk test'
+                    sh 'docker run --volumes-from stacks_jenkins-data_1 --privileged -v /dev/bus/usb:/dev/bus/usb stacks_androidsdk bash InstallApp.bash $WORKSPACE/android/app/build/outputs/apk/debug/app-debug.apk test'
                 }
             }
         }
